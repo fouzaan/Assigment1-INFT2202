@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
 
 </head>
-<body >
+<body class="bg-black">
 
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -47,18 +47,26 @@
     </nav>
 </header>
 
-<section id="blog" class="container my-5">
-    <h1 class="text-center mb-5">Latest Articles</h1>
+<section id="portfolio" class="bg-dark text-white py-5">
+    <div class="container text-center">
+        <h1>Latest Articles</h1>
+        <p>Harmony Hub has initiated a lot of new projects and services to ensure an active community. <br>Mentioned below
+            are some of the services we work to provide with your help. <br>Click on each service to see a detailed
+            description about what we offer, along with the timings.
+        </p>
+    </div>
+</section>
 
-    <div class="row">
+
+    <div id="services-container" class="row">
 
         <!-- Article 1 -->
         <div class="col-md-4">
-            <div class="card">
+            <div class="project-card">
                 <img src="./images/blogvolunteer.jpg" class="card-img-top" alt="Article 1 Image">
-                <div class="card-body">
+                <div class="card-body p-2">
                     <h2 class="card-title">Empowering Local Communities Through Volunteerism</h2>
-                    <p class="card-text post-summary">Explore the impact of volunteer work in building stronger local communities. Learn about inspiring stories and initiatives that make a difference.</p>
+                    <p class="card-text post-summary p-20">Explore the impact of volunteer work in building stronger local communities. Learn about inspiring stories and initiatives that make a difference.</p>
                     <a href="article1.html" class="btn btn-info read-more-link">Read more</a>
                 </div>
             </div>
@@ -66,9 +74,9 @@
 
         <!-- Article 2 -->
         <div class="col-md-4">
-            <div class="card">
+            <div class="project-card">
                 <img src="./images/bloggardening.jpg" class="card-img-top" alt="Article 2 Image">
-                <div class="card-body">
+                <div class="card-body p-2">
                     <h2 class="card-title">Community Gardening: Cultivating Unity and Sustainability</h2>
                     <p class="card-text post-summary">Discover the positive impact of community gardening on fostering unity and sustainability. Learn about the benefits and success stories of communal green spaces.</p>
                     <a href="article2.html" class="btn btn-info read-more-link">Read more</a>
@@ -78,9 +86,9 @@
 
         <!-- Article 3 -->
         <div class="col-md-4">
-            <div class="card">
+            <div class="project-card ">
                 <img src="./images/blogdigitalinclusion.jpg" class="card-img-top" alt="Article 3 Image">
-                <div class="card-body">
+                <div class="card-body p-2">
                     <h2 class="card-title">Digital Inclusion: Bridging Gaps in Community Connectivity</h2>
                     <p class="card-text post-summary">Explore how digital inclusion initiatives are bridging gaps in community connectivity. Learn about programs that empower individuals through technology.</p>
                     <a href="article3.html" class="btn btn-info read-more-link">Read more</a>
@@ -91,33 +99,9 @@
         <!-- Add more articles as needed -->
 
     </div>
-</section>
 
 
-<footer class="bg-dark text-white mt-5 fixed-bottom">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="privacypolicy.html"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="termsofservice.html"><i class="fa-solid fa-envelope-open-text"></i> Terms of Service</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html"><i class="fa-solid fa-inbox"></i> Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</footer>
+
 
 <!-- Scripting Section -->
 <script src="./Script/main.js"></script>

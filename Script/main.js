@@ -120,6 +120,9 @@ function showService(serviceNumber) {
     }
 }
 
+/**
+ *
+ */
 document.addEventListener("DOMContentLoaded", function () {
     // Your existing JavaScript code
 
@@ -185,29 +188,173 @@ document.addEventListener("DOMContentLoaded", function () {
         const modal = new bootstrap.Modal(document.getElementById(`serviceModal${serviceNumber}`));
         modal.show();
     }
+    function showTeamModal(ShowTeamModal) {
+        const TeamMembers = [
+            {
+                title: "Fozaan",
+                description: "WEBD DEVELOPER",
+                Projects: {
+                    ProjectAlpha: "Developed a responsive website for a client in the healthcare industry.",
+                    ProjectBeta: "Implemented new features and optimizations for an e-commerce platform."
+                }
+            },
+            {
+                title: "Child-Free Reading",
+                description: "At the Harmony Hub within our library, we offer specialized supervision services...",
+                Projects: {
+                    ProjectX: "Organized and conducted weekly reading sessions for children in a safe environment.",
+                    ProjectY: "Collaborated with local schools to promote literacy through interactive storytelling."
+                }
+            },
+            {
+                title: "Student Lounge",
+                description: "At the Harmony Hub, we provide a lively student lounge that acts as a gathering place for students...",
+                Projects: {
+                    ProjectM: "Hosted gaming nights and events to foster a sense of community among students.",
+                    ProjectN: "Facilitated study group sessions with resources and support for academic success."
+                }
+            }
+        ];
 
+        const Team = TeamMembers[ShowTeamModal - 1];
+
+        // Populate modal content
+        document.getElementById(`TeamMemberModalLable${ShowTeamModal}`).innerText = Team.title;
+        document.getElementById(`TeamMemberModalContent${ShowTeamModal}`).innerHTML = `
+            <h1>${Team.title}</h1>
+            <p>${Team.description}</p>
+            <h2>Projects:</h2>
+            <ul>
+                ${Object.entries(Team.Projects).map(([day, timing]) => `<li>${day}: ${timing}</li>`).join('')}
+            </ul>
+        `;
+
+        // Show the modal
+        const modal = new bootstrap.Modal(document.getElementById(`teamModal${ShowTeamModal}`));
+        modal.show();
+
+
+    }
     // Attach click event listeners to service tabs
     document.querySelectorAll('.service-tab').forEach((tab, index) => {
         tab.addEventListener('click', () => showServiceModal(index + 1));
     });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Select all elements with the class 'team-member'
-    const teamMembers = document.querySelectorAll('.team-member');
-
-    // Loop through each team member card
-    teamMembers.forEach(function (member) {
-        // Add a click event listener to the current team member card
-        member.addEventListener('click', function () {
-            // Get the modal ID from the 'data-target' attribute of the clicked card
-            const modalId = this.getAttribute('data-target');
-
-            // Create a new Bootstrap Modal instance for the modal with the retrieved ID
-            const modal = new bootstrap.Modal(document.getElementById(modalId));
-
-            // Show the modal
-            modal.show();
-        });
+    document.querySelectorAll('.team-member').forEach((tab, index) => {
+        tab.addEventListener('click', () => showTeamModal(index + 1));
     });
+
 });
+
+
+(function() {
+    document.addEventListener("DOMContentLoaded", function () {
+        // Dynamically add 'Careers' link
+        const careersLink = document.createElement("li");
+        careersLink.classList.add("nav-item");
+        careersLink.innerHTML = '<a class="nav-link" href="careers.html"><i class="fa-solid fa-briefcase"></i> Careers</a>';
+
+        const navbarLinks = document.querySelector(".navbar-nav");
+        navbarLinks.appendChild(careersLink);
+
+        // Programmatically change 'Blog' link to 'News'
+        const blogLink = document.querySelector(".nav-link[href='blog.html']");
+        blogLink.innerHTML = '<i class="fa-solid fa-newspaper"></i> News';
+
+    });
+})();
+
+// main.js
+
+// Function to create the footer element
+function createFooter() {
+    // Create footer element
+    const footer = document.createElement("footer");
+    footer.className = "bg-dark text-white mt-5 fixed-bottom";
+
+    // Create navbar inside the footer
+    const navbar = document.createElement("nav");
+    navbar.className = "navbar navbar-expand-lg bg-body-tertiary";
+
+    // Create container inside the navbar
+    const container = document.createElement("div");
+    container.className = "container-fluid";
+
+    // Create button for toggling navigation
+    const button = document.createElement("button");
+    button.className = "navbar-toggler";
+    button.type = "button";
+    button.setAttribute("data-bs-toggle", "collapse");
+    button.setAttribute("data-bs-target", "#navbarSupportedContent");
+    button.setAttribute("aria-controls", "navbarSupportedContent");
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-label", "Toggle navigation");
+
+    // Create span for the toggler icon
+    const span = document.createElement("span");
+    span.className = "navbar-toggler-icon";
+
+    // Appending the span to the button
+    button.appendChild(span);
+
+    // Appending the button to the container
+    container.appendChild(button);
+
+    // Create navbar content inside the container
+    const navbarContent = document.createElement("div");
+    navbarContent.className = "collapse navbar-collapse";
+    navbarContent.id = "navbarSupportContent";
+
+    // Create unordered list inside the navbar content
+    const ul = document.createElement("ul");
+    ul.className = "navbar-nav me-auto mb-2 mb-lg-0";
+
+    // Create list items for the navbar links
+    const navItems = [
+        { text: "Privacy Policy", icon: "fa-shield-halved", href: "privacypolicy.html" },
+        { text: "Terms of Service", icon: "fa-envelope-open-text", href: "termsofservice.html" },
+        { text: "Contact", icon: "fa-inbox", href: "contact.html" },
+    ];
+
+    // Loop through the navItems and create list items
+    navItems.forEach((item) => {
+        const li = document.createElement("li");
+        li.className = "nav-item";
+
+        const a = document.createElement("a");
+        a.className = "nav-link";
+        a.href = item.href;
+
+        const icon = document.createElement("i");
+        icon.className = `fa-solid ${item.icon}`;
+
+        const text = document.createTextNode(` ${item.text}`);
+
+        // Appending the icon and text to the link
+        a.appendChild(icon);
+        a.appendChild(text);
+
+        // Appending the link to the list item
+        li.appendChild(a);
+
+        // Appending the list item to the unordered list
+        ul.appendChild(li);
+    });
+
+    // Appending the unordered list to the navbar content
+    navbarContent.appendChild(ul);
+
+    // Appending the navbar content to the container
+    container.appendChild(navbarContent);
+
+    // Appending the container to the navbar
+    navbar.appendChild(container);
+
+    // Appending the navbar to the footer
+    footer.appendChild(navbar);
+
+    // Appending the footer to the body
+    document.body.appendChild(footer);
+}
+
+// Call the createFooter function to generate and append the footer
+createFooter();
