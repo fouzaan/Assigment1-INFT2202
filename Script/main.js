@@ -1,7 +1,15 @@
-// Index page
-
+/**
+ * Created by Asish and Fouzaan
+ * student id are: 100886468 and 100857977
+ * date of completion is 26-01-2023
+ *
+ */
 let slideIndex = 0;
 
+
+/**
+ * This is a function which will show the slide show of the images
+ */
 function showSlides() {
     let i;
     const slides = document.getElementsByClassName("mySlides");
@@ -36,40 +44,44 @@ document.addEventListener("DOMContentLoaded", function () {
     const projectList = document.getElementById("project-list");
     const loadMoreButton = document.getElementById("load-more");
     let projectsData = [
-        { title: "Charity Basketball Event", description: "Harmony Hub focuses on bringing the community together " +
-                "through sports and activities. The following image depicts a group of children playing " +
-                "basketball with fellow community members. The event encouraged both physical exercise and " +
-                "collecting money for charity!", imageSrc: "./images/basketballevent.jpg" },
+        {
+            title: "Kids Coding Camp",
+            description: "Harmony Hub's Kids Coding Camp introduces young minds to the fun of coding through games and creative projects, making technology an exciting learning experience for our little ones.",
+            imageSrc: "./images/kidscodingcamp.jpg"
+        },
 
-        { title: "Community BBQ", description: "Harmony Hub's sizzling BBQ extravaganza united our " +
-                "community in a feast of flavor, forging bonds over smoky delights and sun-soaked " +
-                "camaraderie. The event focused on encouraging community " +
-                "engagement!", imageSrc: "./images/bbqevent.jpg" },
+        {
+            title: "Community Garden Makeover",
+            description: "Join us in transforming a local community garden into a green oasis where neighbors come together to nurture plants and build a stronger sense of community. Let's cultivate connections and green thumbs!",
+            imageSrc: "./images/communitygarden.jpg"
+        },
 
-        { title: "Back-to-School Bash", description: "Harmony Hub's Back-to-School Bash focused on unleashing " +
-                "knowledge with smiles, free supplies, and community cheer. Empowering futures, " +
-                "one backpack at a time. The event provided free activities and snacks for all students and parents" +
-                "along with lots of games and giveaways!", imageSrc: "./images/backtoschoolevent.jpg" },
+        {
+            title: "Neighbor Support Initiative",
+            description: "Harmony Hub's Neighbor Support Initiative focuses on small acts of kindness within our community. Whether it's running errands or a friendly chat, join our neighborly network and make a positive impact.",
+            imageSrc: "./images/neighborsupport.jpg"
+        },
 
-        { title: "Student Lounge", description: "Harmony Hub's recent initiative included a student lounge for " +
-                "all teens!. This project encourages students from different schools to unite and interact" +
-                " with each other in a positive way. Board, table and card games along" +
-                "with other interactive activities are provided.", imageSrc: "./images/studentlounge.jpg" },
+        {
+            title: "Tech Basics Workshop",
+            description: "Harmony Hub's Tech Basics Workshop makes technology easy for everyone in the community. From smartphones to email, let's navigate the digital world together with practical skills.",
+            imageSrc: "./images/techbasicsworkshop.jpg"
+        },
 
-        { title: "Play-area & Library", description: "A library is also provided here at Harmony Hub, not only " +
-                "for children but also for adults and parents. This will allow parents to read to their " +
-                "children or alone while their children play in a safe and kid friendly " +
-                "environment supervised by a professional.", imageSrc: "./images/playlibrary.jpg" },
-
-        { title: "Free Therapy Sessions", description: "Harmony Hub focuses on both the physical and mental " +
-                "health of all youth in the community, therefore providing free therapy for all " +
-                "teens between 12-19. This allows one-on-one consoling in a safe confidential environment " +
-                "to ensure healthy stress-free youth in the community.", imageSrc: "./images/teentherapy.jpg" },
-
+        {
+            title: "Local Art Showcase",
+            description: "Experience the vibrant talent of our community in Harmony Hub's Local Art Showcase. From paintings to sculptures, join us in celebrating the creativity that makes our neighborhood unique.",
+            imageSrc: "./images/localartshowcase.jpg"
+        }
     ];
     const projectsPerPage = 4;
     let projectsToShow = projectsData.slice(0, projectsPerPage);
 
+    /**
+     * this takes the project data and spits out cards
+     * @param project the actual project data
+     * @returns {HTMLDivElement}
+     */
     function createProjectCard(project) {
         const card = document.createElement("div");
         card.className = "project-card";
@@ -81,6 +93,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return card;
     }
 
+    /**
+     * It takes the project data and it renders it
+     * @param projects the actual project data
+     */
     function renderProjects(projects) {
         projects.forEach((project) => {
             const card = createProjectCard(project);
@@ -88,6 +104,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    /**
+     * It takes the project data and displays it when we hit load more
+     */
     function loadMoreProjects() {
         const remainingProjects = projectsData.slice(projectsToShow.length, projectsToShow.length + projectsPerPage);
         projectsToShow = projectsToShow.concat(remainingProjects);
@@ -105,71 +124,33 @@ document.addEventListener("DOMContentLoaded", function () {
     renderProjects(projectsToShow);
 });
 
-// Services Page
-function showService(serviceNumber) {
-    // Hide all service details
-    const allServiceDetails = document.querySelectorAll('.service-details');
-    allServiceDetails.forEach((serviceDetail) => {
-        serviceDetail.style.display = 'none';
-    });
 
-    // Show the selected service detail
-    const selectedServiceDetail = document.getElementById(`service-details-${serviceNumber}`);
-    if (selectedServiceDetail) {
-        selectedServiceDetail.style.display = 'block';
-    }
-}
 
-/**
- *
- */
 document.addEventListener("DOMContentLoaded", function () {
     // Your existing JavaScript code
 
     // Function to show service details in the modal
+    /**
+     * Function to show service details in the modal
+     * @param serviceNumber the index of the modal
+     */
     function showServiceModal(serviceNumber) {
         // Define service details
         const services = [
             {
-                title: "Free Therapy",
-                description: "At the Harmony Hub, we provide free therapy sessions...",
-                timings: {
-                    Sunday: "Closed",
-                    Monday: "3:00 PM - 10:00 PM",
-                    Tuesday: "3:00 PM - 10:00 PM",
-                    Wednesday: "3:00 PM - 10:00 PM",
-                    Thursday: "3:00 PM - 10:00 PM",
-                    Friday: "3:00 PM - 10:00 PM",
-                    Saturday: "Closed",
-                }
+                title: "Art Corner",
+                description: "Immerse yourself in the world of creativity at our Art Corner. Express your artistic side through painting, drawing, and crafts. Unleash your imagination in a welcoming space designed for everyone to enjoy."
             },
             {
-                title: "Child-Free Reading",
-                description: "At the Harmony Hub within our library, we offer specialized supervision services...",
-                timings: {
-                    Sunday: "9:00 AM - 9:00 PM",
-                    Monday: "5:00 PM - 10:00 PM",
-                    Tuesday: "5:00 PM - 10:00 PM",
-                    Wednesday: "5:00 PM - 10:00 PM",
-                    Thursday: "5:00 PM - 10:00 PM",
-                    Friday: "5:00 PM - 10:00 PM",
-                    Saturday: "9:00 AM - 9:00 PM",
-                }
+                title: "Relaxation Sessions",
+                description: "Take a break and join our Relaxation Sessions to unwind and rejuvenate. From guided meditation to calming activities, these sessions provide a peaceful retreat from daily stresses. Embrace tranquility and find your moment of serenity."
             },
             {
-                title: "Student Lounge",
-                description: "At the Harmony Hub, we provide a lively student lounge that acts as a gathering place for students...",
-                timings: {
-                    Sunday: "4:00 PM - 6:00 PM",
-                    Monday: "3:00 PM - 7:00 PM",
-                    Tuesday: "3:00 PM - 7:00 PM",
-                    Wednesday: "5:00 PM - 7:00 PM",
-                    Thursday: "3:00 PM - 7:00 PM",
-                    Friday: "3:00 PM - 7:00 PM",
-                    Saturday: "4:00 PM - 6:00 PM",
-                }
+                title: "Green Living Workshops",
+                description: "Discover sustainable living through our Green Living Workshops. Learn practical tips for an eco-friendly lifestyle, from recycling practices to energy-saving techniques. Join us in building a greener and healthier community together."
             }
         ];
+
 
         const service = services[serviceNumber - 1];
 
@@ -178,16 +159,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById(`serviceModalContent${serviceNumber}`).innerHTML = `
             <h1>${service.title}</h1>
             <p>${service.description}</p>
-            <h2>Timings:</h2>
-            <ul>
-                ${Object.entries(service.timings).map(([day, timing]) => `<li>${day}: ${timing}</li>`).join('')}
-            </ul>
         `;
 
         // Show the modal
         const modal = new bootstrap.Modal(document.getElementById(`serviceModal${serviceNumber}`));
         modal.show();
     }
+
+    /**
+     *
+     * @param ShowTeamModal the index of the team modal
+     */
     function showTeamModal(ShowTeamModal) {
         const TeamMembers = [
             {
@@ -199,16 +181,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
             {
-                title: "Child-Free Reading",
-                description: "At the Harmony Hub within our library, we offer specialized supervision services...",
+                title: "Asish Dhakal",
+                description: "Graphics designer",
                 Projects: {
                     ProjectX: "Organized and conducted weekly reading sessions for children in a safe environment.",
                     ProjectY: "Collaborated with local schools to promote literacy through interactive storytelling."
                 }
             },
             {
-                title: "Student Lounge",
-                description: "At the Harmony Hub, we provide a lively student lounge that acts as a gathering place for students...",
+                title: "Billy Joel",
+                description: "Content writer",
                 Projects: {
                     ProjectM: "Hosted gaming nights and events to foster a sense of community among students.",
                     ProjectN: "Facilitated study group sessions with resources and support for academic success."
@@ -245,7 +227,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
+/**
+ * An IIFY function doing the modification of dom elements
+ */
 (function() {
     document.addEventListener("DOMContentLoaded", function () {
         // Dynamically add 'Careers' link
@@ -266,6 +250,9 @@ document.addEventListener("DOMContentLoaded", function () {
 // main.js
 
 // Function to create the footer element
+/**
+ * Function to create the footer element
+ */
 function createFooter() {
     // Create footer element
     const footer = document.createElement("footer");
@@ -312,7 +299,7 @@ function createFooter() {
     const navItems = [
         { text: "Privacy Policy", icon: "fa-shield-halved", href: "privacypolicy.html" },
         { text: "Terms of Service", icon: "fa-envelope-open-text", href: "termsofservice.html" },
-        { text: "Contact", icon: "fa-inbox", href: "contact.html" },
+        { text: "Contact", icon: "fa-inbox", href: "./contact.html" },
     ];
 
     // Loop through the navItems and create list items
@@ -358,3 +345,38 @@ function createFooter() {
 
 // Call the createFooter function to generate and append the footer
 createFooter();
+
+
+/**
+ * Validation for the Contact Form, and submission and redirection.
+ * @returns {boolean}
+ */
+function validateForm() {
+    // Get form inputs
+    let fullName = document.getElementById('fullName').value;
+    let subject = document.getElementById('subject').value;
+    let emailAddress = document.getElementById('emailAddress').value;
+    let message = document.getElementById('message').value;
+
+    // Check if required fields are empty
+    if (fullName === '' || subject === '' || emailAddress === '' || message === '') {
+        alert('Please fill in all required fields.');
+        return false;
+    }
+
+    // Check email format
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailAddress)) {
+        alert('Please enter a valid email address.');
+        return false;
+    } else {
+
+
+        if (confirm('Thank you for your submission! You will be redirected to the Home page in 5 seconds.')) {
+            setTimeout(function () {
+                window.location.href = './index.html';
+            }, 5000);
+        }
+    }
+    return false
+}
