@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Dynamically add 'Careers' link
         const careersLink = document.createElement("li");
         careersLink.classList.add("nav-item");
-        careersLink.innerHTML = '<a class="nav-link" href="careers.html"><i class="fa-solid fa-briefcase"></i> Careers</a>';
+        careersLink.innerHTML = '<a class="nav-link" href="./Careers.html"><i class="fa-solid fa-briefcase"></i> Careers</a>';
 
         const navbarLinks = document.querySelector(".navbar-nav");
         navbarLinks.appendChild(careersLink);
